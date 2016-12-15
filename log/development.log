@@ -38,3 +38,29 @@ Processing by StudentsController#index as HTML
   [1m[35mStudent Load (0.5ms)[0m  SELECT "students".* FROM "students"
   Rendered students/index.html.erb within layouts/application (0.5ms)
 Completed 200 OK in 390ms (Views: 386.5ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "students"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "students" ("firstname", "lastname", "favoritefood", "favoritecolor", "favoritemovie", "created_at", "updated_at", "id") VALUES ('Jimmy', 'Butler', 'Onion Soup', 'Yellow', 'Orange County', '2016-12-15 12:31:31', '2016-12-15 12:31:31', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "students" ("firstname", "lastname", "favoritefood", "favoritecolor", "favoritemovie", "created_at", "updated_at", "id") VALUES ('Jimmy', 'Garrapolo', 'Tempura shrimp', 'Thistle', 'Taboo', '2016-12-15 12:31:31', '2016-12-15 12:31:31', 298486374)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "students" ("firstname", "lastname", "favoritefood", "favoritecolor", "favoritemovie", "created_at", "updated_at", "id") VALUES ('Tom', 'Brady', 'Eggs', 'Elmer', 'Elysium', '2016-12-15 12:31:31', '2016-12-15 12:31:31', 113629430)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "students" ("firstname", "lastname", "favoritefood", "favoritecolor", "favoritemovie", "created_at", "updated_at", "id") VALUES ('Kobe', 'Bryant', 'Rottini', 'Red', 'Radio', '2016-12-15 12:31:31', '2016-12-15 12:31:31', 281110143)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "students" ("firstname", "lastname", "favoritefood", "favoritecolor", "favoritemovie", "created_at", "updated_at", "id") VALUES ('Shaquille', 'O''Neal', 'Veal', 'Violet', 'V for Vendetta', '2016-12-15 12:31:31', '2016-12-15 12:31:31', 1018350795)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "students" ("firstname", "lastname", "favoritefood", "favoritecolor", "favoritemovie", "created_at", "updated_at", "id") VALUES ('Joey', 'Galloway', 'Onion Soup', 'Red', 'Taboo', '2016-12-15 12:31:31', '2016-12-15 12:31:31', 51848956)
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/students" for ::1 at 2016-12-15 09:31:47 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.0ms)[0m  SELECT "students".* FROM "students"
+  [1m[36m (0.0ms)[0m  [1mSELECT "students"."firstname" FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (28.0ms)
+Completed 200 OK in 868ms (Views: 831.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/students?movie=tab" for ::1 at 2016-12-15 09:31:51 -0300
+Processing by StudentsController#index as HTML
+  Parameters: {"movie"=>"tab"}
+  [1m[35mStudent Load (0.0ms)[0m  SELECT "students".* FROM "students" WHERE (lower(favoritemovie) LIKE 'tab%')
+  Rendered students/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 112ms (Views: 95.0ms | ActiveRecord: 0.0ms)
